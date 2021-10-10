@@ -14,10 +14,9 @@ const refs = {
 }
 
 const markupParser = (jsonArray) => {
-  return jsonArray.map(e => 
-    refs.jsMenu.insertAdjacentHTML('beforeend', Template(e)))
+  return Template(jsonArray);
 }
-markupParser(markup);
+refs.jsMenu.insertAdjacentHTML('beforeend', markupParser(markup))
 toggleSwitcher();
 refs.bodyClassList.add(localStorage.getItem('theme') || themeColor.LIGHT);
 
